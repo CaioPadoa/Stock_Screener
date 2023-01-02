@@ -1,7 +1,5 @@
 import pandas as pd
-import yfinance as yf
 import streamlit as st
-import datetime as dt
 import fundamentus
 
 # Funções que serão utilizadas
@@ -139,6 +137,26 @@ if confirm:
         if setor_select:
         
             b3_final = b3[b3.index.isin(b3_setor)]
+
+            st.write(f"\nO screening selecionou {b3_final.shape[0]} empresas\n")
+         
+            st.write(b3_final)
+
+            st.caption("Dados extraídos do site https://www.fundamentus.com.br/resultado.php")
+
+            st.write("\nAs empresas filtradas são:\n")
+            st.write(list(b3_final.index))
+
+            screening = download_screening(b3_final)
+
+            st.sidebar.download_button(
+                label = "Download do Data Frame como CSV",
+                data = screening,
+                file_name = 'screening_python.csv',
+            )
+
+        if pl_select:
+            b3_final = b3[b3.pl < pl]
 
             st.write(f"\nO screening selecionou {b3_final.shape[0]} empresas\n")
          
