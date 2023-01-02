@@ -55,9 +55,7 @@ if roe_select:
     filtros['roe'] = roe
 
 if pl_select:
-    pl  = float((st.sidebar.number_input("Escolha o PL mínimo")))
-    filtros['pl'] = pl
-    
+    pl  = float((st.sidebar.number_input("Escolha o PL máximo")))
 
 if dy_select:
     dy  = float(((st.sidebar.number_input("Escolha o DY mínimo (%)"))) / 100)
@@ -91,6 +89,10 @@ if confirm:
         filtro_final = " & ".join(condicoes)
 
         b3_final = b3.query(filtro_final)
+
+        if pl_select:
+
+            b3_final = b3_final[b3_final.pl < pl]
 
         if setor_select:
 
@@ -139,7 +141,7 @@ if confirm:
             b3_final = b3[b3.index.isin(b3_setor)]
 
             st.write(f"\nO screening selecionou {b3_final.shape[0]} empresas\n")
-        
+         
             st.write(b3_final.T)
 
             st.caption("Dados extraídos do site https://www.fundamentus.com.br/resultado.php")
