@@ -100,14 +100,14 @@ if confirm:
 
             st.write(f"\nO screening selecionou {b3_final_setor.shape[0]} empresas\n")
         
-            st.write(b3_final_setor.T)
+            st.write(b3_final_setor)
 
             st.caption("Dados extraídos do site https://www.fundamentus.com.br/resultado.php")
 
             st.write("\nAs empresas filtradas são:\n")
             st.write(list(b3_final_setor.index))
 
-            screening = download_screening(b3_final_setor.T)
+            screening = download_screening(b3_final_setor)
 
             st.sidebar.download_button(
                 label = "Download do Data Frame como CSV",
@@ -119,14 +119,14 @@ if confirm:
 
             st.write(f"\nO screening selecionou {b3_final.shape[0]} empresas\n")
 
-            st.write(b3_final.T)
+            st.write(b3_final)
 
             st.caption("Dados extraídos do site https://www.fundamentus.com.br/resultado.php")
 
             st.write("\nAs empresas filtradas são:\n")
             st.write(list(b3_final.index))
 
-            screening = download_screening(b3_final.T)
+            screening = download_screening(b3_final)
 
             st.sidebar.download_button(
                 label = "Download do Data Frame como CSV",
@@ -142,14 +142,14 @@ if confirm:
 
             st.write(f"\nO screening selecionou {b3_final.shape[0]} empresas\n")
          
-            st.write(b3_final.T)
+            st.write(b3_final)
 
             st.caption("Dados extraídos do site https://www.fundamentus.com.br/resultado.php")
 
             st.write("\nAs empresas filtradas são:\n")
             st.write(list(b3_final.index))
 
-            screening = download_screening(b3_final.T)
+            screening = download_screening(b3_final)
 
             st.sidebar.download_button(
                 label = "Download do Data Frame como CSV",
@@ -163,6 +163,6 @@ if confirm:
 
             st.write(f"\nA base contém um total de {b3.shape[0]} empresas\n")
 
-            st.write(b3.T)
+            st.write(b3)
 
             st.caption("Dados extraídos do site https://www.fundamentus.com.br/resultado.php")
